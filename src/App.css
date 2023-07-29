@@ -42,3 +42,8 @@ h4 {
   margin-left: 10px;
   margin-right: 10px;
 }
+
+body {
+  background-color: lightsteelblue;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
