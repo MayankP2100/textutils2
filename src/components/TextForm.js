@@ -123,6 +123,8 @@ export default function TextForm(props) {
           <br />
           Minutes to read: {0.008 * words}
         </pre>
+        <h1>Preview</h1>
+        <p className="fs-4">{text}</p>
       </div>
     </div>
   );
