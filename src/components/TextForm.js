@@ -2,53 +2,55 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const [text, setText] = useState("Hello, I'm a text.");
+  let words = text !== "" ? text.split(" ").length : 0;
+  let characters = text.length;
 
-	function onChangeHandle(event) {
-		setText(event.target.value);
-	}
+  function onChangeHandle(event) {
+    setText(event.target.value);
+  }
 
-	function onUpperClickHandle() {
-		let newText = text.toUpperCase();
-		setText(newText);
-	}
+  function onUpperClickHandle() {
+    let newText = text.toUpperCase();
+    setText(newText);
+  }
 
-	function onlowerClickHandle() {
-		let newText = text.toLowerCase();
-		setText(newText);
-	}
+  function onlowerClickHandle() {
+    let newText = text.toLowerCase();
+    setText(newText);
+  }
 
-	function onClearClickHandle() {
-		let newText = "";
-		setText(newText);
-	}
+  function onClearClickHandle() {
+    let newText = "";
+    setText(newText);
+  }
 
-	function onRepeatClickHandle() {
-		let newText = text.repeat(2);
-		setText(newText);
-	}
+  function onRepeatClickHandle() {
+    let newText = text.repeat(2);
+    setText(newText);
+  }
 
-	function onRemoveExtraSpacesClickHandle() {
-		let newText = text;
-		newText = newText.replace(/\s+/g, " ");
-		setText(newText);
-	}
+  function onRemoveExtraSpacesClickHandle() {
+    let newText = text;
+    newText = newText.replace(/\s+/g, " ");
+    setText(newText);
+  }
 
-	function onCopyClickHandle() {
-		let newText = text;
-		navigator.clipboard.writeText(newText);
-	}
+  function onCopyClickHandle() {
+    let newText = text;
+    navigator.clipboard.writeText(newText);
+  }
 
   return (
-    <div className="container my-5">
+    <div className="container my-4">
       <h1 className="my-3">Enter text here to analyze</h1>
 
       <div className="form-floating">
         <textarea
           className="form-control fs-4"
           id="floatingTextarea2"
-          style={{ height: "300px" }}
-					value={text}
-					onChange={onChangeHandle}
+          style={{ height: "200px" }}
+          value={text}
+          onChange={onChangeHandle}
         ></textarea>
       </div>
 
@@ -65,21 +67,21 @@ export default function TextForm(props) {
           <button
             type="button"
             className="btn btn-primary p-3 fw-semibold fs-5 text-start"
-						onClick={onUpperClickHandle}
+            onClick={onUpperClickHandle}
           >
             Convert to UPPERCASE
           </button>
           <button
             type="button"
             className="btn btn-primary p-3 fw-semibold fs-5 text-center"
-						onClick={onlowerClickHandle}
+            onClick={onlowerClickHandle}
           >
             Convert to lowercase
           </button>
           <button
             type="button"
             className="btn btn-primary p-3 fw-semibold fs-5 text-end"
-						onClick={onClearClickHandle}
+            onClick={onClearClickHandle}
           >
             Clear Text
           </button>
@@ -93,25 +95,34 @@ export default function TextForm(props) {
           <button
             type="button"
             className="btn btn-success p-3 fw-semibold fs-5 text-start"
-						onClick={onRemoveExtraSpacesClickHandle}
+            onClick={onRemoveExtraSpacesClickHandle}
           >
             Remove Extra Spaces
           </button>
           <button
             type="button"
             className="btn btn-success p-3 fw-semibold fs-5 text-center"
-						onClick={onRepeatClickHandle}
+            onClick={onRepeatClickHandle}
           >
             Repeat Text
           </button>
           <button
             type="button"
             className="btn btn-success p-3 fw-semibold fs-5 text-end"
-						onClick={onCopyClickHandle}
+            onClick={onCopyClickHandle}
           >
             Copy Text
           </button>
         </div>
+      </div>
+      <hr className="my-1 border-3" />
+      <div className="container">
+        <h1>Text Summary</h1>
+        <pre className="fs-5">
+          Words: {words} | Characters: {characters}
+          <br />
+          Minutes to read: {0.008 * words}
+        </pre>
       </div>
     </div>
   );
