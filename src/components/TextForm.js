@@ -127,7 +127,7 @@ export default function TextForm(props) {
         </pre>
         <h2>Preview</h2>
         <p className="fs-4" style={{ textAlign: "justify" }}>
-          {text}
+          {text.length > 0 ? text : "Enter something in the textbox above."}
         </p>
       </div>
     </div>
