@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import wordcount from "wordcount";
 
 export default function TextForm(props) {
   const [text, setText] = useState("Hello, I'm a text.");
-  let words = text !== "" ? text.split(" ").length : 0;
+
+  let words = wordcount(text);
   let characters = text.length;
 
   function onChangeHandle(event) {
@@ -117,14 +119,16 @@ export default function TextForm(props) {
       </div>
       <hr className="my-1 border-3" />
       <div className="container">
-        <h1>Text Summary</h1>
+        <h2>Text Summary</h2>
         <pre className="fs-5">
           Words: {words} | Characters: {characters}
           <br />
           Minutes to read: {0.008 * words}
         </pre>
-        <h1>Preview</h1>
-        <p className="fs-4">{text}</p>
+        <h2>Preview</h2>
+        <p className="fs-4" style={{ textAlign: "justify" }}>
+          {text}
+        </p>
       </div>
     </div>
   );
