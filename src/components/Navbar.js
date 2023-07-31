@@ -4,7 +4,9 @@ export default function Navbar(navbarProps) {
   return (
     <nav className="navbar bg-primary-subtle">
       <div className="container-fluid">
-        <span className="navbar-brand fw-semibold fs-2">{navbarProps.brand}</span>
+        <span className="navbar-brand fw-semibold fs-2">
+          {navbarProps.brand}
+        </span>
         <form className="me-auto fw-semibold">
           <a className="navbar-brand" href="/">
             Home
@@ -13,7 +15,7 @@ export default function Navbar(navbarProps) {
             {navbarProps.about}
           </a>
         </form>
-        <form className="d-flex" role="search">
+        {/* <form className="d-flex" role="search">
           <input
             className="form-control me-2"
             type="search"
@@ -23,7 +25,17 @@ export default function Navbar(navbarProps) {
           <button className="btn btn-outline-success" type="submit">
             Search
           </button>
-        </form>
+        </form> */}
+        <div className="form-check form-switch form-check-reverse">
+          <input
+            class="form-check-input my-2"
+            type="checkbox"
+            id="flexSwitchCheckReverse"
+          />
+          <label className="form-check-label fw-semibold fs-5" htmlFor="flexSwitchCheckReverse">
+            Toggle Theme
+          </label>
+        </div>
       </div>
     </nav>
   );
