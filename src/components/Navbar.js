@@ -2,16 +2,16 @@ import React from "react";
 
 export default function Navbar(navbarProps) {
   return (
-    <nav className="navbar bg-primary-subtle">
+    <nav className="navbar p-1" style={navbarProps.darkTheme}>
       <div className="container-fluid">
-        <span className="navbar-brand fw-semibold fs-2">
+        <span className="navbar-brand fw-semibold fs-2" style={navbarProps.darkTheme}>
           {navbarProps.brand}
         </span>
         <form className="me-auto fw-semibold">
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand" href="/" style={navbarProps.darkTheme}>
             Home
           </a>
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand" href="/" style={navbarProps.darkTheme}>
             {navbarProps.about}
           </a>
         </form>
@@ -28,11 +28,14 @@ export default function Navbar(navbarProps) {
         </form> */}
         <div className="form-check form-switch form-check-reverse">
           <input
-            class="form-check-input my-2"
+            className="form-check-input my-2"
             type="checkbox"
             id="flexSwitchCheckReverse"
           />
-          <label className="form-check-label fw-semibold fs-5" htmlFor="flexSwitchCheckReverse">
+          <label
+            className="form-check-label fw-semibold fs-5"
+            htmlFor="flexSwitchCheckReverse"
+          >
             Toggle Theme
           </label>
         </div>

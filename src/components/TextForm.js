@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import wordcount from "wordcount";
 
-export default function TextForm(props) {
+export default function TextForm(textformProps) {
   const [text, setText] = useState("Hello, I'm a text.");
 
   let words = wordcount(text);
@@ -43,14 +43,14 @@ export default function TextForm(props) {
   }
 
   return (
-    <div className="container my-4">
+    <div className="container my-4" style={textformProps.darkThemeBody}>
       <h1 className="my-3">Enter text here to analyze</h1>
 
       <div className="form-floating">
         <textarea
           className="form-control fs-4"
           id="floatingTextarea2"
-          style={{ height: "200px" }}
+          style={textformProps.darkThemeTextarea}
           value={text}
           onChange={onChangeHandle}
         ></textarea>
