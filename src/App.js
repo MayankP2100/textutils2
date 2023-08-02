@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import PropTypes from "prop-types";
 import TextForm from "./components/TextForm";
 
 function App() {
+  const [themeValue, setThemeValue] = useState("");
+
+  function getThemeValue(themeValueFromChildren) {
+    if (themeValueFromChildren) {
+    setThemeValue(1);
+    } else if (!themeValueFromChildren) {
+      setThemeValue(0);
+    }
+    console.log(themeValue);
+  }
+
   let navbarProps = {
     brand: PropTypes.string.isRequired,
     about: PropTypes.string.isRequired,
     darkTheme: PropTypes.object.isRequired,
+    sendDataToParent: PropTypes.func.isRequired,
   };
 
   let textformProps = {
@@ -36,7 +48,6 @@ function App() {
     color: "#fffff",
   };
 
-
   let texrareaDarkTheme = {
     height: "200px",
     backgroundColor: "#555555",
@@ -49,13 +60,13 @@ function App() {
     color: "#fffff",
   };
 
-
   navbarProps.darkTheme = navbarLightTheme;
-  textformProps.darkThemeBody = generalLightTheme;
-  textformProps.darkThemeTextarea = texrareaLightTheme;
-
+  navbarProps.sendDataToParent = getThemeValue;
   navbarProps.brand = "TextUtils2";
   navbarProps.about = "About";
+
+  textformProps.darkThemeBody = generalLightTheme;
+  textformProps.darkThemeTextarea = texrareaLightTheme;
 
   return (
     <>
