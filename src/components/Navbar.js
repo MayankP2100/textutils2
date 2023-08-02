@@ -15,17 +15,6 @@ export default function Navbar(navbarProps) {
             {navbarProps.about}
           </a>
         </form>
-        {/* <form className="d-flex" role="search">
-          <input
-            className="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button className="btn btn-outline-success" type="submit">
-            Search
-          </button>
-        </form> */}
         <div className="form-check form-switch form-check-reverse">
           <input
             className="form-check-input my-2"
