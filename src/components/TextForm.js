@@ -69,6 +69,7 @@ export default function TextForm(textformProps) {
           <button
             type="button"
             className="btn btn-primary p-3 fw-semibold fs-5 text-start"
+            style={textformProps.setUpperButtonTheme}
             onClick={onUpperClickHandle}
           >
             Convert to UPPERCASE
@@ -76,6 +77,7 @@ export default function TextForm(textformProps) {
           <button
             type="button"
             className="btn btn-primary p-3 fw-semibold fs-5 text-center"
+            style={textformProps.setUpperButtonTheme}
             onClick={onlowerClickHandle}
           >
             Convert to lowercase
@@ -83,6 +85,7 @@ export default function TextForm(textformProps) {
           <button
             type="button"
             className="btn btn-primary p-3 fw-semibold fs-5 text-end"
+            style={textformProps.setUpperButtonTheme}
             onClick={onClearClickHandle}
           >
             Clear Text
@@ -97,6 +100,7 @@ export default function TextForm(textformProps) {
           <button
             type="button"
             className="btn btn-success p-3 fw-semibold fs-5 text-start"
+            style={textformProps.setLowerButtonTheme}
             onClick={onRemoveExtraSpacesClickHandle}
           >
             Remove Extra Spaces
@@ -104,6 +108,7 @@ export default function TextForm(textformProps) {
           <button
             type="button"
             className="btn btn-success p-3 fw-semibold fs-5 text-center"
+            style={textformProps.setLowerButtonTheme}
             onClick={onRepeatClickHandle}
           >
             Repeat Text
@@ -111,6 +116,7 @@ export default function TextForm(textformProps) {
           <button
             type="button"
             className="btn btn-success p-3 fw-semibold fs-5 text-end"
+            style={textformProps.setLowerButtonTheme}
             onClick={onCopyClickHandle}
           >
             Copy Text

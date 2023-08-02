@@ -58,6 +58,29 @@ function App() {
     width: "100vw",
   };
 
+  let upperButtonsLightTheme = {
+    backgroundColor: "blue",
+    color: "white",
+  }
+
+  let upperButtonsDarkTheme = {
+    backgroundColor: "red",
+    color: "white",
+  }
+
+  let lowerButtonsLightTheme = {
+    backgroundColor: "green",
+    color: "white",
+  }
+
+  let lowerButtonsDarkTheme = {
+    backgroundColor: "yellow",
+    color: "black",
+  }
+
+  let upperButtonsTheme;
+  let lowerButtonsTheme;
+
   function getThemeValue(themeValueFromChildren) {
     setThemeValue(themeValueFromChildren);
     console.log(themeValue);
@@ -73,6 +96,8 @@ function App() {
   let textformProps = {
     setThemeBody: PropTypes.object.isRequired,
     setThemeTextarea: PropTypes.object.isRequired,
+    setUpperButtonTheme: PropTypes.object.isRequired,
+    setLowerButtonTheme: PropTypes.object.isRequired,
   };
 
   if (themeValue === true) {
@@ -80,11 +105,15 @@ function App() {
     navbarTheme = navbarDarkTheme;
     textareaTheme = textareaDarkTheme;
     bodyTheme = bodyDarkTheme;
+    upperButtonsTheme = upperButtonsDarkTheme;
+    lowerButtonsTheme = lowerButtonsDarkTheme;
   } else if (themeValue === false) {
     generalTheme = generalLightTheme;
     navbarTheme = navbarLightTheme;
     textareaTheme = textareaLightTheme;
     bodyTheme = bodyLightTheme;
+    upperButtonsTheme = upperButtonsLightTheme;
+    lowerButtonsTheme = lowerButtonsLightTheme;
   }
 
   navbarProps.setTheme = navbarTheme;
@@ -94,6 +123,8 @@ function App() {
 
   textformProps.setThemeBody = generalTheme;
   textformProps.setThemeTextarea = textareaTheme;
+  textformProps.setUpperButtonTheme = upperButtonsTheme;
+  textformProps.setLowerButtonTheme = lowerButtonsTheme;
 
   return (
     <>
