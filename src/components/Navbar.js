@@ -2,32 +2,32 @@ import React, { useState } from "react";
 
 export default function Navbar(navbarProps) {
 
-  const [switchStatus, setSwitchStatus] = useState(false);
+  const [switchStatus, setSwitchStatus] = useState(true);
 
   function handleSwitchToggle() {
-    if (!switchStatus) {
+    if (switchStatus === false) {
       setSwitchStatus(true);
       navbarProps.sendDataToParent(switchStatus);
-    } else if (switchStatus) {
+    } else if (switchStatus === true) {
       setSwitchStatus(false);
       navbarProps.sendDataToParent(switchStatus);
     }
   }
 
   return (
-    <nav className="navbar p-1" style={navbarProps.darkTheme}>
+    <nav className="navbar p-1" style={navbarProps.setTheme}>
       <div className="container-fluid">
         <span
           className="navbar-brand fw-semibold fs-2"
-          style={navbarProps.darkTheme}
+          style={navbarProps.setTheme}
         >
           {navbarProps.brand}
         </span>
         <form className="me-auto fw-semibold">
-          <a className="navbar-brand" href="/" style={navbarProps.darkTheme}>
+          <a className="navbar-brand" href="/" style={navbarProps.setTheme}>
             Home
           </a>
-          <a className="navbar-brand" href="/" style={navbarProps.darkTheme}>
+          <a className="navbar-brand" href="/" style={navbarProps.setTheme}>
             {navbarProps.about}
           </a>
         </form>

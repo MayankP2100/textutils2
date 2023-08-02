@@ -5,28 +5,12 @@ import PropTypes from "prop-types";
 import TextForm from "./components/TextForm";
 
 function App() {
-  const [themeValue, setThemeValue] = useState("");
+  const [themeValue, setThemeValue] = useState(false);
 
-  function getThemeValue(themeValueFromChildren) {
-    if (themeValueFromChildren) {
-    setThemeValue(1);
-    } else if (!themeValueFromChildren) {
-      setThemeValue(0);
-    }
-    console.log(themeValue);
-  }
-
-  let navbarProps = {
-    brand: PropTypes.string.isRequired,
-    about: PropTypes.string.isRequired,
-    darkTheme: PropTypes.object.isRequired,
-    sendDataToParent: PropTypes.func.isRequired,
-  };
-
-  let textformProps = {
-    darkThemeBody: PropTypes.object.isRequired,
-    darkThemeTextarea: PropTypes.object.isRequired,
-  };
+  let generalTheme;
+  let navbarTheme;
+  let textareaTheme;
+  let bodyTheme;
 
   let generalDarkTheme = {
     backgroundColor: "#3e3e42",
@@ -35,7 +19,7 @@ function App() {
 
   let generalLightTheme = {
     backgroundColor: "#B8CFFB",
-    color: "#fffff",
+    color: "#000000",
   };
 
   let navbarDarkTheme = {
@@ -45,39 +29,75 @@ function App() {
 
   let navbarLightTheme = {
     backgroundColor: "#8AB0F9",
-    color: "#fffff",
+    color: "#000000",
   };
 
-  let texrareaDarkTheme = {
+  let textareaDarkTheme = {
     height: "200px",
     backgroundColor: "#555555",
     color: "#D3D3D3",
   };
 
-  let texrareaLightTheme = {
+  let textareaLightTheme = {
     height: "200px",
     backgroundColor: "#E9FBFA",
-    color: "#fffff",
+    color: "#000000",
   };
 
-  navbarProps.darkTheme = navbarLightTheme;
+  let bodyLightTheme = {
+    backgroundColor: "#B8CFFB",
+    color: "#000000",
+    height: "100vh",
+    width: "100vw",
+  };
+
+  let bodyDarkTheme = {
+    backgroundColor: "#3e3e42",
+    color: "#fff",
+    height: "100vh",
+    width: "100vw",
+  };
+
+  function getThemeValue(themeValueFromChildren) {
+    setThemeValue(themeValueFromChildren);
+    console.log(themeValue);
+  }
+
+  let navbarProps = {
+    brand: PropTypes.string.isRequired,
+    about: PropTypes.string.isRequired,
+    setTheme: PropTypes.object.isRequired,
+    sendDataToParent: PropTypes.func.isRequired,
+  };
+
+  let textformProps = {
+    setThemeBody: PropTypes.object.isRequired,
+    setThemeTextarea: PropTypes.object.isRequired,
+  };
+
+  if (themeValue === true) {
+    generalTheme = generalDarkTheme;
+    navbarTheme = navbarDarkTheme;
+    textareaTheme = textareaDarkTheme;
+    bodyTheme = bodyDarkTheme;
+  } else if (themeValue === false) {
+    generalTheme = generalLightTheme;
+    navbarTheme = navbarLightTheme;
+    textareaTheme = textareaLightTheme;
+    bodyTheme = bodyLightTheme;
+  }
+
+  navbarProps.setTheme = navbarTheme;
   navbarProps.sendDataToParent = getThemeValue;
   navbarProps.brand = "TextUtils2";
   navbarProps.about = "About";
 
-  textformProps.darkThemeBody = generalLightTheme;
-  textformProps.darkThemeTextarea = texrareaLightTheme;
+  textformProps.setThemeBody = generalTheme;
+  textformProps.setThemeTextarea = textareaTheme;
 
   return (
     <>
-      <div
-        style={{
-          backgroundColor: generalLightTheme.backgroundColor,
-          color: generalLightTheme.color,
-          height: "100vh",
-          width: "100vw",
-        }}
-      >
+      <div style={bodyTheme}>
         <Navbar {...navbarProps} />
         <TextForm {...textformProps} />
       </div>

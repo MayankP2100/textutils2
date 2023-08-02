@@ -43,14 +43,14 @@ export default function TextForm(textformProps) {
   }
 
   return (
-    <div className="container my-4" style={textformProps.darkThemeBody}>
+    <div className="container my-4" style={textformProps.setThemeBody}>
       <h1 className="my-3">Enter text here to analyze</h1>
 
       <div className="form-floating">
         <textarea
           className="form-control fs-4"
           id="floatingTextarea2"
-          style={textformProps.darkThemeTextarea}
+          style={textformProps.setThemeTextarea}
           value={text}
           onChange={onChangeHandle}
         ></textarea>
