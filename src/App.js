@@ -13,6 +13,10 @@ function App() {
   let navbarTheme;
   let textareaTheme;
   let bodyTheme;
+  let cardTheme;
+  let cardInfoTheme;
+  let upperButtonsTheme;
+  let lowerButtonsTheme;
 
   let generalDarkTheme = {
     backgroundColor: "#3e3e42",
@@ -80,8 +84,29 @@ function App() {
     color: "black",
   };
 
-  let upperButtonsTheme;
-  let lowerButtonsTheme;
+  let cardLightTheme = {
+    backgroundColor: "#ecf4fe",
+    color: "#000000",
+    width: "fit-content",
+  };
+
+  let cardDarkTheme = {
+    backgroundColor: "#636262",
+    color: "#fff",
+    width: "fit-content",
+  };
+
+  let cardInfoLightTheme = {
+    backgroundColor: "#ecf4fe",
+    color: "#000000",
+    width: "fit-content",
+  };
+
+  let cardInfoDarkTheme = {
+    backgroundColor: "#636262",
+    color: "#fff",
+    width: "fit-content",
+  };
 
   function getThemeValue(themeValueFromChildren) {
     setThemeValue(themeValueFromChildren);
@@ -102,6 +127,11 @@ function App() {
     setLowerButtonTheme: PropTypes.object.isRequired,
   };
 
+  let aboutProps = {
+    setCardTheme: PropTypes.object.isRequired,
+    setCardInfoTheme: PropTypes.object.isRequired,
+  };
+
   if (themeValue === true) {
     generalTheme = generalDarkTheme;
     navbarTheme = navbarDarkTheme;
@@ -109,6 +139,8 @@ function App() {
     bodyTheme = bodyDarkTheme;
     upperButtonsTheme = upperButtonsDarkTheme;
     lowerButtonsTheme = lowerButtonsDarkTheme;
+    cardTheme = cardDarkTheme;
+    cardInfoTheme = cardInfoDarkTheme;
   } else if (themeValue === false) {
     generalTheme = generalLightTheme;
     navbarTheme = navbarLightTheme;
@@ -116,6 +148,8 @@ function App() {
     bodyTheme = bodyLightTheme;
     upperButtonsTheme = upperButtonsLightTheme;
     lowerButtonsTheme = lowerButtonsLightTheme;
+    cardTheme = cardLightTheme;
+    cardInfoTheme = cardInfoLightTheme;
   }
 
   navbarProps.setTheme = navbarTheme;
@@ -128,6 +162,9 @@ function App() {
   textformProps.setUpperButtonTheme = upperButtonsTheme;
   textformProps.setLowerButtonTheme = lowerButtonsTheme;
 
+  aboutProps.setCardTheme = cardTheme;
+  aboutProps.setCardInfoTheme = cardInfoTheme;
+
   return (
     <>
       <BrowserRouter>
@@ -135,7 +172,7 @@ function App() {
           <Navbar {...navbarProps} />
           <Routes>
             <Route path="/" element={<TextForm {...textformProps} />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About {...aboutProps} />} />
           </Routes>
         </div>
       </BrowserRouter>
