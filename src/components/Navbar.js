@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar(navbarProps) {
-
   const [switchStatus, setSwitchStatus] = useState(true);
 
   function handleSwitchToggle() {
@@ -24,12 +24,16 @@ export default function Navbar(navbarProps) {
           {navbarProps.brand}
         </span>
         <form className="me-auto fw-semibold">
-          <a className="navbar-brand" href="/" style={navbarProps.setTheme}>
+          <Link className="navbar-brand" to="/" style={navbarProps.setTheme}>
             Home
-          </a>
-          <a className="navbar-brand" href="/" style={navbarProps.setTheme}>
+          </Link>
+          <Link
+            className="navbar-brand"
+            to="/about"
+            style={navbarProps.setTheme}
+          >
             {navbarProps.about}
-          </a>
+          </Link>
         </form>
         <div className="form-check form-switch form-check-reverse">
           <input

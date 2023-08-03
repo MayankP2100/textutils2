@@ -3,6 +3,8 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import PropTypes from "prop-types";
 import TextForm from "./components/TextForm";
+import About from "./components/About";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [themeValue, setThemeValue] = useState(false);
@@ -61,22 +63,22 @@ function App() {
   let upperButtonsLightTheme = {
     backgroundColor: "blue",
     color: "white",
-  }
+  };
 
   let upperButtonsDarkTheme = {
     backgroundColor: "red",
     color: "white",
-  }
+  };
 
   let lowerButtonsLightTheme = {
     backgroundColor: "green",
     color: "white",
-  }
+  };
 
   let lowerButtonsDarkTheme = {
     backgroundColor: "yellow",
     color: "black",
-  }
+  };
 
   let upperButtonsTheme;
   let lowerButtonsTheme;
@@ -128,10 +130,15 @@ function App() {
 
   return (
     <>
-      <div style={bodyTheme}>
-        <Navbar {...navbarProps} />
-        <TextForm {...textformProps} />
-      </div>
+      <BrowserRouter>
+        <div style={bodyTheme}>
+          <Navbar {...navbarProps} />
+          <Routes>
+            <Route path="/" element={<TextForm {...textformProps} />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </>
   );
 }
