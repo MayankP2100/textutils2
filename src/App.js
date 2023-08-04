@@ -70,8 +70,8 @@ function App() {
   };
 
   let upperButtonsDarkTheme = {
-    backgroundColor: "red",
-    color: "white",
+    backgroundColor: "#343434",
+    color: "#D3D3D3",
   };
 
   let lowerButtonsLightTheme = {
@@ -80,8 +80,8 @@ function App() {
   };
 
   let lowerButtonsDarkTheme = {
-    backgroundColor: "yellow",
-    color: "black",
+    backgroundColor: "#343434",
+    color: "#D3D3D3",
   };
 
   let cardLightTheme = {
