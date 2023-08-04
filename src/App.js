@@ -141,6 +141,7 @@ function App() {
     lowerButtonsTheme = lowerButtonsDarkTheme;
     cardTheme = cardDarkTheme;
     cardInfoTheme = cardInfoDarkTheme;
+    document.body.style = 'background: #3e3e42;';
   } else if (themeValue === false) {
     generalTheme = generalLightTheme;
     navbarTheme = navbarLightTheme;
@@ -150,6 +151,7 @@ function App() {
     lowerButtonsTheme = lowerButtonsLightTheme;
     cardTheme = cardLightTheme;
     cardInfoTheme = cardInfoLightTheme;
+    document.body.style = 'background: #B8CFFB;';
   }
 
   navbarProps.setTheme = navbarTheme;
