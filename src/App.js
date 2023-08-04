@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import PropTypes from "prop-types";
 import TextForm from "./components/TextForm";
 import About from "./components/About";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes, HashRouter } from "react-router-dom";
 
 function App() {
   const [themeValue, setThemeValue] = useState(false);
@@ -167,7 +167,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <div style={bodyTheme}>
           <Navbar {...navbarProps} />
           <Routes>
@@ -175,7 +175,7 @@ function App() {
             <Route path="/about" element={<About {...aboutProps} />} />
           </Routes>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }
